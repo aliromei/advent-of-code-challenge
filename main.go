@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	challenges.First()
+	challenges.Second()
 }
