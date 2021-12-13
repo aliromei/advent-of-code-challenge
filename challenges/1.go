@@ -9,7 +9,7 @@ import (
 // runs the 1st challenge
 func First() {
 	// read the file
-	data, err := os.ReadFile("inputs/1")
+	data, err := os.ReadFile("inputs/day-1")
 	check(err)
 	// tokenize the file
 	inputs := strings.Fields(string(data))
