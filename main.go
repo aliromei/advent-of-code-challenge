@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	challenges.Second()
+	challenges.Day_3_second()
 }

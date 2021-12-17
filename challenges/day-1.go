@@ -6,46 +6,28 @@ import (
 	"strings"
 )
 
-// converts the given numeric string to its integer value
-func str2int(s string) int {
-	var i int
-	if _, err := fmt.Sscanf(s, "%d", &i); err != nil {
-		panic(err)
-	}
-	return i
-}
-
-// gets an
-func sumOfStrings(array []string) int {
-	var sum int
-	for _, value := range array {
-		sum += str2int(value)
-	}
-	return sum
-}
-
 // runs the 1st challenge
-func First() {
-	// read the file
-	data, err := os.ReadFile("inputs/day-1")
-	check(err)
+func Day_1_first() {
+	content := readInputOfDay(1)
 	// tokenize the file
-	inputs := strings.Fields(string(data))
+	inputs := strings.Fields(content)
 	inputsLength, firstInput, counter := len(inputs), 0, 0
 	if len(inputs) < 2 {
 		fmt.Println("Insufficiant inputs")
 		os.Exit(1)
 	}
-	_, err = fmt.Sscanf(inputs[0], "%d", &firstInput)
-	check(err)
+	if _, err := fmt.Sscanf(inputs[0], "%d", &firstInput); err != nil {
+		panic(err)
+	}
 	// start the loop
 	for a, b, i := 2000000, firstInput, 0; i < inputsLength-1; i++ {
 		if a < b {
 			counter++
 		}
 		a = b
-		_, err = fmt.Sscanf(inputs[i+1], "%d", &b)
-		check(err)
+		if _, err := fmt.Sscanf(inputs[i+1], "%d", &b); err != nil {
+			panic(err)
+		}
 	}
 	// print the result
 	fmt.Println("increment count =", counter)
@@ -53,12 +35,10 @@ func First() {
 }
 
 // runs the second challenge
-func Second() {
-	// read the file
-	data, err := os.ReadFile("inputs/day-1")
-	check(err)
+func Day_1_second() {
+	content := readInputOfDay(1)
 	// tokenize the file
-	inputs := strings.Fields(string(data))
+	inputs := strings.Fields(content)
 	inputsLength, counter := len(inputs), 0
 	if len(inputs) < 2 {
 		fmt.Println("Insufficiant inputs")
